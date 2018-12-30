@@ -1,0 +1,46 @@
+The ability of wavelet, time-frequency, curvelet and other
+localized transforms to sparsely represent different classes of
+high-dimensional data such as audio signals and images that lie
+on regular Euclidean spaces has led to a number of resounding
+successes in the aforementioned signal processing tasks (see,
+e.g., [13, Section II] for a recent survey of transform methods).
+Both a signal on a graph with N vertices and a classical
+discrete-time signal with N samples can be viewed as vectors
+in R
+N . However, a major obstacle to the application of the
+classical signal processing techniques in the graph setting
+is that processing the graph signal in the same ways as a
+discrete-time signal ignores key dependencies arising from the
+irregular data domain.1 Moreover, many extremely simple yet
+fundamental concepts that underlie classical signal processing
+techniques become significantly more challenging in the graph
+setting:
+? To translate an analog signal f(t) to the right by 3, we
+simply perform a change of variable and consider f(t?3).
+However, it is not immediately clear what it means to
+translate a graph signal ¡°to the right by 3.¡± The change
+of variable technique will not work as there is no meaning
+to f(? ? 3) in the graph setting. One naive option would
+be to simply label the vertices from 1 to N and define
+f(? ? 3) := f(mod(? ? 3, N)), but it is not particularly
+useful to define a generalized translation that depends
+heavily on the order in which we (arbitrarily) label the
+vertices. The unavoidable fact is that weighted graphs
+are irregular structures that lack a shift-invariant notion
+of translation.2
+? Modulating a signal on the real line by multiplying
+by a complex exponential corresponds to translation in
+the Fourier domain. However, the analogous spectrum
+in the graph setting is discrete and irregularly spaced,
+and it is therefore non-trivial to define an operator that
+corresponds to translation in the graph spectral domain.
+? We intuitively downsample a discrete-time signal by
+deleting every other data point, for example. Yet, what
+does it mean to downsample the signal on the vertices
+of the graph shown in Figure 1? There is not an obvious
+notion of ¡°every other vertex¡± of a weighted graph.
+? Even when we do fix a notion of downsampling, in order
+to create a multiresolution on graphs, we need a method
+to generate a coarser version of the graph that somehow
+captures the structural properties embedded in the original
+graph
